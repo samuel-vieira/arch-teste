@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:atomic_state/data/data.dart';
 import 'package:atomic_state/dto/host_dto.dart';
-import 'package:atomic_state/entities/host.dart';
 
 class HostService {
   final List<HostDTO> _hosts = [];
