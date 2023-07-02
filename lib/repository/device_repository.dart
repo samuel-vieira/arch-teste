@@ -8,10 +8,10 @@ class DeviceRepository {
 
   final DeviceService _deviceService = DeviceService();
 
-  List<Device> getDevices() {
+  Future<List<Device>> getDevices() async {
     List<Device> devices = [];
 
-    List<DeviceDTO> devicesDTO = _deviceService.fetchDevices();
+    List<DeviceDTO> devicesDTO = await _deviceService.fetchDevices();
 
     for (var deviceDTO in devicesDTO) {
       devices.add(DeviceAdapter().fromDTO(deviceDTO));

@@ -8,9 +8,10 @@ class DeviceService {
 
   final List<DeviceDTO> _devices = [];
 
-  List<DeviceDTO> fetchDevices() {
+  Future<List<DeviceDTO>> fetchDevices() async {
     final deviceDecoded = _decodeDevice();
 
+    await Future.delayed(const Duration(seconds: 2));
     _setDevices(deviceDecoded);
 
     return _devices;

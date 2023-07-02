@@ -1,6 +1,5 @@
 import 'package:atomic_state/repository/host_repository.dart';
 import 'package:atomic_state/stores/host_store.dart';
-import 'package:flutter/foundation.dart';
 import 'package:rx_notifier/rx_notifier.dart';
 
 class HostReducer extends RxReducer {
@@ -11,9 +10,8 @@ class HostReducer extends RxReducer {
   }
 
   _fetchHosts() {
-    hosts.value.addAll(_hostRepository.getHost());
-    hosts.value = List.from(hosts.value);
+    hosts.clear();
+    hosts.addAll(_hostRepository.getHost());
     setHostsOnDevices.call();
-    debugPrint(hosts.toString());
   }
 }
